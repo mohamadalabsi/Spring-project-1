@@ -26,7 +26,7 @@ public class Product {
 
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-YYYY") // just to change the data format , but make sure it is not already handled in the frontend , because it cause an error
     private Date releaseDate;
-    private boolean available; ;
+    private boolean productAvailable; ;
     private int quantity;
 
 //    now adding the image , one way is to store the image  in cloud storage and get the link of it like AWS and it is preferred and then store the url of the cloud storage in the DB , this is simpler

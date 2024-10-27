@@ -47,7 +47,7 @@ public class ProductController {
     }
 
     @PostMapping("/product")
-    public ResponseEntity <?> addProduct(@RequestPart Product product , @RequestPart MultipartFile imageFile ){ // we will use RequestPart instead of RequestBody because the image has a different format and we will get it as parts , but with RequestBody except the hole object as json format
+    public ResponseEntity <?> addProduct(@RequestPart Product product , @RequestPart MultipartFile imageFile ){ // we will use RequestPart instead of RequestBody because the image has a different format and we will get it as parts , but with RequestBody except the hole object as json format , and also the names should be the same as the frontend because it is two requests
 
         try {
             Product product1=  productService.addProduct(product, imageFile);
