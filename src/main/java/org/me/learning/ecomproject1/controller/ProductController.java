@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -45,6 +46,17 @@ public class ProductController {
 
     }
 
+    @PostMapping("/product")
+    public ResponseEntity <?> addProduct(@RequestPart Product product , @RequestPart MultipartFile imageFile ){ // we will use RequestPart instead of RequestBody because the image has a different format and we will get it as parts , but with RequestBody except the hole object as json format
+
+        try {
+            Product product1=  productService.addProduct(product, imageFile);
+            return new ResponseEntity<> (product1, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<> (e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 
 
