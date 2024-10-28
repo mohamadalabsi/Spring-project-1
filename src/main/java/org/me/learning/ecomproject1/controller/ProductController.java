@@ -1,6 +1,7 @@
 package org.me.learning.ecomproject1.controller;
 
 
+import jakarta.websocket.server.PathParam;
 import org.me.learning.ecomproject1.model.Product;
 import org.me.learning.ecomproject1.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +102,13 @@ public class ProductController {
         }else {
             return new ResponseEntity<> ("Failed to delete ",HttpStatus.NOT_FOUND);
         }
+
+    }
+
+    @GetMapping("/products/search")
+    public ResponseEntity < List<Product>> getProducts(@RequestParam String keyword ){
+         List<Product>  products = productService.searchProducts(keyword);
+        return new  ResponseEntity<> (products, HttpStatus.OK);
 
     }
 
